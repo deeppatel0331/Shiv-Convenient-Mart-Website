@@ -10,7 +10,7 @@ export const products = () => {
 
         <ParentContainer>
           
-          <HeadContainer>VEGETABLES</HeadContainer>
+          <HeadContainer>Some of our fresh vegetables:</HeadContainer>
 
           <VegetableContainer>
 
@@ -41,7 +41,27 @@ export const products = () => {
                   />
             </ImageWrapper>
 
+            <Vegetable>Cucumbers</Vegetable>
+            <ImageWrapper>
+              <Image 
+                  src = "/cucumbers.jpeg"
+                  alt="Picture of the store"
+                  fill={true}
+                  />
+            </ImageWrapper>
+
+            <Vegetable>Spinach</Vegetable>
+            <ImageWrapper>
+              <Image 
+                  src = "/Spinach.jpeg"
+                  alt="Picture of the store"
+                  fill={true}
+                  />
+            </ImageWrapper>
+
           </VegetableContainer>
+
+          <HeadContainer>Some of our frozen goods</HeadContainer>
 
         </ParentContainer>
         
@@ -54,7 +74,7 @@ const ParentContainer = styled.main`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 85.65vh;
+  height: 100%;
   background-color: #141e30;
 `
 const HeadContainer = styled.h1`
@@ -81,13 +101,67 @@ const VegetableContainer = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   gap: 1px;
-  padding: 1px;
-  height: 85.65vh;
+  padding: 3px;
+  height: 100vh;
   padding-left: 10px;
   background-color: #141e30;
 `
 
 const Vegetable = styled.p`
+  margin: 15px;
+  font-size: 25px;
+  font-family: Sans Seriff;
+  color: white;
+`
+
+const FrozenContainer = styled.div`
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1px;
+  padding: 3px;
+  height: 100vh;
+  padding-left: 10px;
+  background-color: #141e30;
+`
+
+const Frozen = styled.p`
+  margin: 15px;
+  font-size: 25px;
+  font-family: Sans Seriff;
+  color: white;
+`
+
+const SnackContainer = styled.div`
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1px;
+  padding: 3px;
+  height: 100vh;
+  padding-left: 10px;
+  background-color: #141e30;
+`
+
+const Snack = styled.p`
+  margin: 15px;
+  font-size: 25px;
+  font-family: Sans Seriff;
+  color: white;
+`
+
+const OtherContainer = styled.div`
+  width: 100vw;
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1px;
+  padding: 3px;
+  height: 100vh;
+  padding-left: 10px;
+  background-color: #141e30;
+`
+
+const Other = styled.p`
   margin: 15px;
   font-size: 25px;
   font-family: Sans Seriff;
