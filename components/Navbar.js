@@ -91,7 +91,7 @@ const NavigationElement = styled.button`
     border: none;
     cursor: pointer;
 
-    transition: 0.2s ease-in-out;
+    transition: 0.1s ease-in-out;
     &:hover{
         transform: scale(1.15);
         color: red;

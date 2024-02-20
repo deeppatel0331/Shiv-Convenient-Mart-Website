@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import styled from 'styled-components';
+import keyframes from 'styled-components';
+
 
 const hours = () => {
 
@@ -33,6 +35,15 @@ const hours = () => {
 
 }
 
+const fade = keyframes`
+    from{
+        opacity: 0.1;
+    }
+
+    to{
+        opacity: 1;
+    }
+`
 //Entire sub-space
 const ParentContainer = styled.main`
     width: 100vw;
@@ -74,5 +85,6 @@ const Day = styled.p`
     font-family: Sans Seriff;
     color: white;
 `;
+
 
 export default hours

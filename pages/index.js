@@ -50,6 +50,7 @@ export default function Home() {
           </Review>
 
         </ReviewContainer>
+        <FooterContainer>link</FooterContainer>
 
       </ParentContainer>
     </>
@@ -58,6 +59,15 @@ export default function Home() {
 
 const ParentContainer = styled.main`
   width: 100vw;
+  height: 100vh;
+`
+
+const FooterContainer = styled.div`
+  width: 100vw;
+  background-color: #141e30;
+  color: white;
+  padding-left: 5px;
+  padding-bottom: 5px;
 `
 
 //the image itself
@@ -92,8 +102,9 @@ const ReviewContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding-left: 100px;
+  padding-right: 100px;
   width: 100%;
-  height: 40vh;
+  height: 60vh;
   background-color: #141e30;
 `
 
