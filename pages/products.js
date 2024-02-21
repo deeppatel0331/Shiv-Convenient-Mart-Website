@@ -3,169 +3,90 @@ import Navbar from '@/components/Navbar'
 import styled from 'styled-components';
 import Image from "next/image";
 
+const productsData = [
+  { name: 'Flour', imageSrc: '/flour.webp' },
+  { name: 'Rice', imageSrc: '/rice.webp' },
+  { name: 'Lentils', imageSrc: '/lentils.webp' },
+  { name: 'Mixes', imageSrc: '/mixes.webp' },
+  { name: 'Snacks', imageSrc: '/snacks2.webp' },
+  { name: 'Sweets', imageSrc: '/sweets.webp' },
+  { name: 'Frozen Meals', imageSrc: '/frozenmeals.webp' },
+  { name: 'Ice Cream', imageSrc: '/icecream.webp' },
+  { name: 'Ice Cream Bars', imageSrc: '/icecreambars.webp' },
+
+];
+
+//controls how things are mapped
+const Product = ({ name, imageSrc }) => (
+  <GeneralContainer key={name}>
+    <General>{name}</General>
+    <ImageWrapper>
+      <Image src={imageSrc} alt={`Picture of ${name}`} fill={true} />
+    </ImageWrapper>
+  </GeneralContainer>
+);
+
+
+//does the mapping of products to their corresponding name and picture
 export const products = () => {
   return (
     <div>
-        <Navbar />
-
-        <ParentContainer>
-          
-          <HeadContainer>Some of our fresh vegetables:</HeadContainer>
-
-          <VegetableContainer>
-
-            <Vegetable>Fresh Cilantro</Vegetable>
-            <ImageWrapper>
-              <Image 
-                src = "/cilantro.jpeg"
-                alt="Picture of the store"
-                fill={true}
-                />
-            </ImageWrapper>
-
-            <Vegetable>Okras</Vegetable>
-            <ImageWrapper>
-              <Image 
-                  src = "/okra.jpeg"
-                  alt="Picture of the store"
-                  fill={true}
-                  />
-            </ImageWrapper>
-
-            <Vegetable>Tomatos</Vegetable>
-            <ImageWrapper>
-              <Image 
-                  src = "/tomato.jpeg"
-                  alt="Picture of the store"
-                  fill={true}
-                  />
-            </ImageWrapper>
-
-            <Vegetable>Cucumbers</Vegetable>
-            <ImageWrapper>
-              <Image 
-                  src = "/cucumbers.jpeg"
-                  alt="Picture of the store"
-                  fill={true}
-                  />
-            </ImageWrapper>
-
-            <Vegetable>Spinach</Vegetable>
-            <ImageWrapper>
-              <Image 
-                  src = "/Spinach.jpeg"
-                  alt="Picture of the store"
-                  fill={true}
-                  />
-            </ImageWrapper>
-
-          </VegetableContainer>
-
-          <HeadContainer>Some of our frozen goods</HeadContainer>
-
-        </ParentContainer>
-        
+      <Navbar />
+      <ParentContainer>
+        <ProductsContainer>
+          {productsData.map((product) => (
+            <Product key={product.name} {...product} />
+          ))}
+        </ProductsContainer>
+      </ParentContainer>
     </div>
-  )
-}
+  );
+};
 
+//body
 const ParentContainer = styled.main`
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  align-items: center;
   background-color: #141e30;
-`
-const HeadContainer = styled.h1`
-    display: flex;
-    font-size: 30px;
-    font-family: Sans Seriff;
-    text-decoration: underline;
-    color: white;
-    padding-top: 30px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-`
+`;
 
+//this provides me with a container with a grid layout
+const ProductsContainer = styled.div`
+  width: 85%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  box-sizing: border-box;
+`;
+
+//holds each general item
+const GeneralContainer = styled.div`
+  background-color: #141e30;
+  padding: 10px;
+  box-sizing: border-box;
+`;
+
+//the images themselves (all with the same properties)
 const ImageWrapper = styled.div`
-  width: 40%;
-  height: 80%;
+  width: 400px;
+  height: 300px;
   position: relative;
   object-fit: contain;
-  padding-left: 10px;
-`
+  margin-top: 10px;
+`;
 
-const VegetableContainer = styled.div`
-  width: 100vw;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1px;
-  padding: 3px;
-  height: 100vh;
-  padding-left: 10px;
-  background-color: #141e30;
-`
-
-const Vegetable = styled.p`
-  margin: 15px;
+//title of each image
+const General = styled.p`
+  margin: 10px;
   font-size: 25px;
-  font-family: Sans Seriff;
+  font-family: Sans Serif;
   color: white;
-`
-
-const FrozenContainer = styled.div`
-  width: 100vw;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1px;
-  padding: 3px;
-  height: 100vh;
-  padding-left: 10px;
-  background-color: #141e30;
-`
-
-const Frozen = styled.p`
-  margin: 15px;
-  font-size: 25px;
-  font-family: Sans Seriff;
-  color: white;
-`
-
-const SnackContainer = styled.div`
-  width: 100vw;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1px;
-  padding: 3px;
-  height: 100vh;
-  padding-left: 10px;
-  background-color: #141e30;
-`
-
-const Snack = styled.p`
-  margin: 15px;
-  font-size: 25px;
-  font-family: Sans Seriff;
-  color: white;
-`
-
-const OtherContainer = styled.div`
-  width: 100vw;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 1px;
-  padding: 3px;
-  height: 100vh;
-  padding-left: 10px;
-  background-color: #141e30;
-`
-
-const Other = styled.p`
-  margin: 15px;
-  font-size: 25px;
-  font-family: Sans Seriff;
-  color: white;
-`
+  text-decoration: underline;
+`;
 
 export default products

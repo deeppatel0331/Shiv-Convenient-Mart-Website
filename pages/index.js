@@ -34,19 +34,15 @@ export default function Home() {
           <HeadContainer>Popular Reviews</HeadContainer>
 
           <Review>
-            "This is the best indian store in Scranton. You can find everything regarding indian grocery. The owner has good nature and very polite. Price is so reasonable. He carries all stuff is so good. He has exchange and return policy. Overall 😊 Good."
-          </Review>
-          
-          <Review></Review>
-
-          <Review>
-            "All indian groceries you can get here"
+            "This is the best indian store in Scranton. You can find everything regarding indian grocery. The owner has good nature and very polite. Price is so reasonable. He carries all stuff is so good. He has exchange and return policy. Overall 😊 Good." ~ Mili Shah
           </Review>
 
-          <Review></Review>
+          <Review>
+            "All indian groceries you can get here" ~ Shailendra Singh
+          </Review>
 
           <Review>
-            "Nice place to shop Indian groceries"
+            "Nice place to shop Indian groceries" ~ Sanav S
           </Review>
 
         </ReviewContainer>
@@ -104,7 +100,7 @@ const ReviewContainer = styled.div`
   padding-left: 100px;
   padding-right: 100px;
   width: 100%;
-  height: 60vh;
+  height: 45vh;
   background-color: #141e30;
 `
 
