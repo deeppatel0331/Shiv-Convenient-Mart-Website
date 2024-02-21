@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import styled from 'styled-components';
+import {styled,keyframes} from 'styled-components'
 import Image from "next/image";
 
 const productsData = [
@@ -17,15 +17,16 @@ const productsData = [
 ];
 
 //controls how things are mapped
-const Product = ({ name, imageSrc }) => (
-  <GeneralContainer key={name}>
-    <General>{name}</General>
-    <ImageWrapper>
-      <Image src={imageSrc} alt={`Picture of ${name}`} fill={true} />
-    </ImageWrapper>
-  </GeneralContainer>
-);
-
+const Product = ({product}) => {
+    return (
+    <GeneralContainer key={product.name}>
+      <General>{product.name}</General>
+      <ImageWrapper>
+        <Image src={product.imageSrc} alt={`Picture of ${product.name}`} fill={true} />
+      </ImageWrapper>
+    </GeneralContainer>
+  )
+}
 
 //does the mapping of products to their corresponding name and picture
 export const products = () => {
@@ -35,13 +36,24 @@ export const products = () => {
       <ParentContainer>
         <ProductsContainer>
           {productsData.map((product) => (
-            <Product key={product.name} {...product} />
+            <Product key={product.name} product = {product} />
           ))}
         </ProductsContainer>
       </ParentContainer>
     </div>
   );
 };
+
+//animation for cool effect
+const fade = keyframes`
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+`
 
 //body
 const ParentContainer = styled.main`
@@ -78,6 +90,7 @@ const ImageWrapper = styled.div`
   position: relative;
   object-fit: contain;
   margin-top: 10px;
+  animation: ${fade} 2s ease;
 `;
 
 //title of each image

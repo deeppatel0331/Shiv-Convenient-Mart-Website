@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import styled from 'styled-components';
-import keyframes from 'styled-components';
+import {styled,keyframes} from 'styled-components'
 
 
 const hours = () => {
@@ -35,9 +34,10 @@ const hours = () => {
 
 }
 
+//animation for cool effects
 const fade = keyframes`
     from{
-        opacity: 0.1;
+        opacity: 0;
     }
 
     to{
@@ -58,6 +58,7 @@ const ParentContainer = styled.main`
 const ContentContainer = styled.div`
     padding: 20px;
     align-items: center;
+    animation: ${fade} 1.5s ease;
 `
 
 //Container for the Header
@@ -69,6 +70,7 @@ const HeadContainer = styled.h1`
     font-family: Sans Seriff;
     text-decoration: underline;
     color: white;
+    animation: ${fade} 0.5s ease;
 `
 
 //Container for the hours
@@ -76,6 +78,7 @@ const DaysContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: ${fade} 1.5s ease;
 `;
 
 //paragraph container to display the hours
@@ -84,6 +87,7 @@ const Day = styled.p`
     font-size: 25px;
     font-family: Sans Seriff;
     color: white;
+    animation: ${fade} 1.5s ease;
 `;
 
 

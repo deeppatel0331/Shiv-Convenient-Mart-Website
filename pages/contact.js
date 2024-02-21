@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import styled from 'styled-components';
+import {styled,keyframes} from 'styled-components'
 
 export const contact = () => {
   return (
@@ -27,6 +27,17 @@ export const contact = () => {
 
 }
 
+//animation for cool effect
+const fade = keyframes`
+    from{
+        opacity: 0;
+    }
+
+    to{
+        opacity: 1;
+    }
+`
+
 //The conents that will be stored including header and paragraph
 const ParentContainer = styled.main`
     width: 100vw;
@@ -40,6 +51,7 @@ const ParentContainer = styled.main`
 const ContentContainer = styled.div`
     padding: 20px;
     align-items: center;
+    animation: ${fade} 1.5s ease;
 `
 //Container for the Header
 const HeadContainer = styled.h1`
@@ -50,12 +62,14 @@ const HeadContainer = styled.h1`
     font-family: Sans Seriff;
     text-decoration: underline;
     color: white;
+    animation: ${fade} 0.5s ease;
 `
 //Container for the information
 const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: ${fade} 1.5s ease;
 `
 
 //Each individual element of contact information
@@ -64,6 +78,7 @@ const Detail = styled.p`
     font-size: 25px;
     font-family: Sans Seriff;
     color: white;
+    animation: ${fade} 1.5s ease;
 `
 
 export default contact

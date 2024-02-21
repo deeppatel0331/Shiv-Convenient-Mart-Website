@@ -1,10 +1,18 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import styled from 'styled-components';
+import {styled,keyframes} from 'styled-components'
 import Navbar from "@/components/Navbar";
+import { useRouter } from "next/router";
 
+//button function to navigate to the admin log in page
 export default function Home() {
+  const router = useRouter();
+
+    function goToAdmin(){
+        router.push("/adminLogin");
+    }
+
   return (
     <>
       <Head>
@@ -46,20 +54,41 @@ export default function Home() {
           </Review>
 
         </ReviewContainer>
-        <FooterContainer>link</FooterContainer>
+        <FooterContainer>
+          
+          <NavigationButtonHolder>
+            <NavigationElement onClick={goToAdmin}> 
+              Admin
+            </NavigationElement>
+          </NavigationButtonHolder>
+
+        </FooterContainer>
 
       </ParentContainer>
     </>
   )
 }
 
+//fading animation for cool effect
+const fade = keyframes`
+    from{
+        opacity: 0.1;
+    }
+
+    to{
+        opacity: 1;
+    }
+`
+//body
 const ParentContainer = styled.main`
   width: 100vw;
   height: 100vh;
 `
 
+//stores the admin log in button
 const FooterContainer = styled.div`
   width: 100vw;
+  height: 4vh;
   background-color: #141e30;
   color: white;
   padding-left: 5px;
@@ -72,6 +101,7 @@ const ImageWrapper = styled.div`
   height: 75%;
   position: relative;
   object-fit: contain;
+  animation: ${fade} 0.5s ease;
 `
 
 //container that holds the image
@@ -84,6 +114,7 @@ const ImageContainer = styled.div`
   height: 85.65vh;
   background-color: #141e30;
 `
+//text styling for the motto
 const Motto = styled.p`
   padding-left: 40px;
   padding-right: 15px;
@@ -91,8 +122,9 @@ const Motto = styled.p`
   font-family: Sans-Serif;
   font-style: italic;
   color: red;
+  animation: ${fade} 2s ease;
 `
-
+//storage for the review portion for the review portion
 const ReviewContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -120,4 +152,26 @@ const Review = styled.p`
   right-padding: 50px;
   font-family: Sans Seriff;
   color: white;
+`
+
+//button holder
+const NavigationButtonHolder = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5vw;
+`
+
+//the button itself
+const NavigationElement = styled.button`
+    padding: 0.1vw;
+    background-color: white;
+    border-radius: 0.5vw;
+    border: none;
+    cursor: pointer;
+
+    transition: 0.1s ease-in-out;
+    &:hover{
+        color: red;
+    }
 `
