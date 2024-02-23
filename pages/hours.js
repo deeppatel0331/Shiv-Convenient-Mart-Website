@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '@/components/Navbar'
-import {styled,keyframes} from 'styled-components'
+import {styled,keyframes} from 'styled-components';
 
 
 const hours = () => {

@@ -2,8 +2,42 @@ import React, { useRef } from 'react'
 import styled from 'styled-components'
 import { auth } from '@/library/firebaseConfig'
 import { signInWithEmailAndPassword } from 'firebase/auth'
+import { database } from '@/library/firebaseConfig'
+import { collection, addDoc, doc, setDoc } from 'firebase/firestore'
+import { useRouter } from "next/router";
+
+//JSON for my hours
+const INITIAL_HOURS = {
+    mondayStart: '9:30am',
+    mondayEnd: '7:00pm',
+    tuesdayStart: '9:30am',
+    tuesdayEnd: '7:00pm',
+    wednesdayStart: '9:30am',
+    wednesdayEnd: '7:00pm',
+    thursdayStart: '9:30am',
+    thursdayEnd: '7:30pm',
+    fridayStart: '9:30am',
+    saturdayStart: '9:30am',
+    saturdayEnd: '7:30pm',
+    sundayStart: '9:30am',
+    sundayEnd: '7:30pm'
+}
+const docRef = doc(database, "hours", "hoursDocument");
+
+async function getHours() {
+    setDoc(docRef, INITIAL_HOURS)
+    .then(() => {
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+}
 
 const AdminLogin = () => {
+
+    const router = useRouter();
+
     const emailRef = useRef()
     const passRef = useRef()
 
@@ -16,6 +50,7 @@ const AdminLogin = () => {
             .then((userCredential) =>  {
                 const user = userCredential.user;
                 console.log(`User ${user.email} logged in successfully`);
+                router.push("/adminPage");
             })
             .catch((error) => {
                 console.log(error.message)
@@ -31,17 +66,23 @@ const AdminLogin = () => {
             <input 
             type='email'
             ref={emailRef}
+            placeholder='enter email here'
             />
 
-            <Info>Passoword:</Info>
+            <Info>Password:</Info>
             <input 
             type='password'
             ref={passRef}
+            placeholder='enter password here'
             />
 
             <Info></Info>
             <button onClick={loginFunction}>Login</button>
+
         </ParentContainer>
+
+        <button onClick={getHours}>Update</button>
+
     </div>
   )
 }

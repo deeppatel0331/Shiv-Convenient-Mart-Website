@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components'
 import Image from "next/image";
