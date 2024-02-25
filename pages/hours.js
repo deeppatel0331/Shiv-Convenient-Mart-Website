@@ -4,9 +4,8 @@ import { database } from '@/library/firebaseConfig';
 import { doc, getDoc} from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 
-
+//function to retrieve the data from the database
 async function getInformation(){
-
     const docRef = doc(database, "hours", "hoursDocument");
     const docSnap = await getDoc(docRef);
     if(docSnap.exists()){
@@ -16,6 +15,8 @@ async function getInformation(){
 }
 
 const hours = () => {
+
+    //the useEffect renders on initialization and info is set to the data retrieved from the database
     const [info, setInfo] = useState(null);
 
     useEffect(() => {
@@ -111,6 +112,5 @@ const Day = styled.p`
     color: white;
     animation: ${fade} 1.5s ease;
 `;
-
 
 export default hours
