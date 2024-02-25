@@ -71,7 +71,9 @@ const LogoBox = styled.div`
     font-size: 5vw;
     font-weight: bold;
     font-family: Sans Seriff;
-    color: white;
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
 `
 
 //the background of the buttons
@@ -91,10 +93,13 @@ const NavigationElement = styled.button`
     border: none;
     cursor: pointer;
 
-    transition: 0.1s ease-in-out;
+    transition: 0.3s ease-in-out;
     &:hover{
         transform: scale(1.15);
         color: red;
+        background: linear-gradient(45deg, #ff8a00, #e52e71);
+        -webkit-background-clip: text;
+        color: transparent;
     }
 `
 
