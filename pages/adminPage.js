@@ -65,8 +65,8 @@ const adminPage = () => {
 
             <HeadContainer>Update Hours</HeadContainer>
             
-            <Info>Day of the week: </Info> <TimeInput ref={DayRef}/>
-            <Info>Time: </Info> <TimeInput  ref={TimeRef}/>
+            <Info>Day of the week: </Info> <TimeInput ref={DayRef} placeholder='enter day in lowercase'/>
+            <Info>Time: </Info> <TimeInput  ref={TimeRef} placeholder='enter time as #:##am - #:##pm'/>
             <Info>...</Info>
             <Change onClick={Enter}>Update</Change> 
 
