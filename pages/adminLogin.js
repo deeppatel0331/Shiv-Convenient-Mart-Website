@@ -8,22 +8,18 @@ import { useRouter } from "next/router";
 
 //JSON for my hours
 const INITIAL_HOURS = {
-    mondayStart: '9:30am',
-    mondayEnd: '7:00pm',
-    tuesdayStart: '9:30am',
-    tuesdayEnd: '7:00pm',
-    wednesdayStart: '9:30am',
-    wednesdayEnd: '7:00pm',
-    thursdayStart: '9:30am',
-    thursdayEnd: '7:30pm',
-    fridayStart: '9:30am',
-    saturdayStart: '9:30am',
-    saturdayEnd: '7:30pm',
-    sundayStart: '9:30am',
-    sundayEnd: '7:30pm'
+    monday: "9:30am - 7:00pm",
+    tuesday: "9:30am - 7:00pm",
+    wednesday: "9:30am - 7:00pm",
+    thursday: "9:30am - 7:30pm",
+    friday: "9:30am - 7:30pm",
+    saturday: "9:30am - 7:30pm",
+    sunday: "9:30am - 7:30pm",
 }
+
 const docRef = doc(database, "hours", "hoursDocument");
 
+//function I used to initialize the database
 async function getHours() {
     setDoc(docRef, INITIAL_HOURS)
     .then(() => {
@@ -37,10 +33,10 @@ async function getHours() {
 const AdminLogin = () => {
 
     const router = useRouter();
-
     const emailRef = useRef()
     const passRef = useRef()
 
+    //Only 1 valid way to successfully log in
     async function loginFunction(){
         const email = emailRef.current.value
         const password = passRef.current.value
@@ -57,6 +53,7 @@ const AdminLogin = () => {
         })
     }
 
+    //layout of the admin log in page
   return (
     <div>
         <ParentContainer>
@@ -81,12 +78,11 @@ const AdminLogin = () => {
 
         </ParentContainer>
 
-        <button onClick={getHours}>Update</button>
-
     </div>
   )
 }
 
+//main container
 const ParentContainer = styled.main`
     width: 100vw;
     display: flex;
@@ -96,6 +92,8 @@ const ParentContainer = styled.main`
     height: 100vh;
     background-color: #141e30;
 `
+
+//for the title
 const HeadContainer = styled.h1`
     display: flex;
     flex-direction: column;
@@ -105,10 +103,12 @@ const HeadContainer = styled.h1`
     color: white;
 `
 
+//for input box description
 const Info = styled.p`
     margin: 5px;
     font-size: 20px;
     font-family: Sans Seriff;
     color: white;
 `;
+
 export default AdminLogin
