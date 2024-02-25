@@ -1,9 +1,31 @@
-import React from 'react'
 import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components';
+import { database } from '@/library/firebaseConfig';
+import { doc, getDoc} from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
 
+
+async function getInformation(){
+
+    const docRef = doc(database, "hours", "hoursDocument");
+    const docSnap = await getDoc(docRef);
+    if(docSnap.exists()){
+        const content = docSnap.data();
+        return content;
+    }
+}
 
 const hours = () => {
+    const [info, setInfo] = useState(null);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await getInformation();
+            setInfo(data);
+        };
+
+        fetchData();
+    }, []);
 
   return (
     <div>
@@ -15,15 +37,15 @@ const hours = () => {
                 <HeadContainer>
                     HOURS
                 </HeadContainer>
-                
+        
                 <DaysContainer>
-                    <Day>Monday: 9:30am - 7:00pm</Day>
-                    <Day>Tuesday: 9:30am - 7:00pm</Day>
-                    <Day>Wednesday: 9:30am - 7:00pm</Day>
-                    <Day>Thursday: 9:30am - 7:30pm</Day>
-                    <Day>Friday: 9:30am - 7:30pm</Day>
-                    <Day>Saturday: 9:30am - 7:30pm</Day>
-                    <Day>Sunday: 9:30am - 7:30pm</Day>
+                    <Day>Monday: {info && info.monday}</Day>
+                    <Day>Tuesday: {info && info.tuesday}</Day>
+                    <Day>Wednesday: {info && info.wednesday}</Day>
+                    <Day>Thursday: {info && info.thursday}</Day>
+                    <Day>Friday: {info && info.friday}</Day>
+                    <Day>Saturday: {info && info.saturday}</Day>
+                    <Day>Sunday: {info && info.sunday}</Day>
                 </DaysContainer>
 
             </ContentContainer>
