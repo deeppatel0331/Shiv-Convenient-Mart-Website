@@ -1,23 +1,62 @@
 import { useRef } from 'react'
 import React from 'react'
 import styled from 'styled-components'
+import { database } from '@/library/firebaseConfig';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 const adminPage = () => {
 
-    const MonStartRef = useRef()
-    const MonEndRef = useRef()
-    const TueStartRef = useRef()
-    const TueEndRef = useRef()
-    const WedStartRef = useRef()
-    const WedEndRef = useRef()
-    const ThurStartRef = useRef()
-    const ThurEndRef = useRef()
-    const FriStartRef = useRef()
-    const FriEndRef = useRef()
-    const SatStartRef = useRef()
-    const SatEndRef = useRef()
-    const SunStartRef = useRef()
-    const SunEndRef = useRef()
+    const DayRef = useRef();
+    const TimeRef = useRef();
+
+    const docRef = doc(database, "hours", "hoursDocument");
+    const Enter = () => {
+        const day = DayRef.current.value;
+        const time = TimeRef.current.value;
+        getDoc(docRef)
+            .then((docSnap) => {
+                let content = docSnap.data();
+                if(day == "monday"){
+                    content.monday = time;
+                }
+
+                else if(day == "tuesday"){
+                    content.tuesday = time;
+                }
+
+                else if(day == "wednesday"){
+                    content.wednesday = time;
+                }
+
+                else if(day == "thursday"){
+                    content.thursday = time;
+                }
+
+                else if(day == "friday"){
+                    content.friday = time;
+                }
+
+                else if(day == "saturday"){
+                    content.saturday = time;
+                }
+
+                else if(day == "sunday"){
+                    content.sunday = time;
+                }
+                
+                setDoc(docRef, content)
+                .then(() => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+            })
+            
+            .catch((error) => {
+                console.error("Error getting document: ", error);
+            });
+        }
 
   return (
     <div>
@@ -26,22 +65,10 @@ const adminPage = () => {
 
             <HeadContainer>Admin Page</HeadContainer>
             
-            <Info>Monday Start: </Info> <TimeInput />
-            <Info>Monday End: </Info> <TimeInput />
-            <Info>Tuesday Start: </Info> <TimeInput />
-            <Info>Tuesday End: </Info> <TimeInput />
-            <Info>Wednesday Start: </Info> <TimeInput />
-            <Info>Wednesday End: </Info> <TimeInput />
-            <Info>Thursday Start: </Info> <TimeInput />
-            <Info>Thursday End: </Info> <TimeInput />
-            <Info>Friday Start: </Info> <TimeInput />
-            <Info>Friday End: </Info> <TimeInput />
-            <Info>Saturday Start: </Info> <TimeInput />
-            <Info>Saturday End: </Info> <TimeInput />
-            <Info>Sunday Start: </Info> <TimeInput />
-            <Info>Saturday End: </Info> <TimeInput />
+            <Info>Day of the week: </Info> <TimeInput ref={DayRef}/>
+            <Info>Time: </Info> <TimeInput  ref={TimeRef}/>
             <Info>...</Info>
-            <Change>Update</Change> 
+            <Change onClick={Enter}>Update</Change> 
 
         </ParentContainer>
 
@@ -54,6 +81,7 @@ const ParentContainer = styled.main`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     height: 100vh;
     background-color: #141e30;
     padding: 2vw;
