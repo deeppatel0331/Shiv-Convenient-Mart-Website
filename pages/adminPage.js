@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import { database } from '@/library/firebaseConfig';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 
+/*
+* This page is for the owners of the store to be able to update the hours of the store as needed.
+*/
+
 const adminPage = () => {
 
     const DayRef = useRef();

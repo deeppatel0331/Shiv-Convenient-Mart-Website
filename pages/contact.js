@@ -2,6 +2,10 @@ import React from 'react'
 import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components'
 
+/*
+* This page displays the contact information for the business.
+*/
+
 export const contact = () => {
   return (
 

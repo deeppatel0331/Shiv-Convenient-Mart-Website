@@ -6,6 +6,10 @@ import { database } from '@/library/firebaseConfig'
 import { collection, addDoc, doc, setDoc } from 'firebase/firestore'
 import { useRouter } from "next/router";
 
+/*
+* This page is for the owners of the store to be able to log in to change the hours
+*/
+
 //JSON for my hours
 const INITIAL_HOURS = {
     monday: "9:30am - 7:00pm",

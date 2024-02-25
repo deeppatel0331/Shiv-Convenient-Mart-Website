@@ -4,6 +4,11 @@ import { database } from '@/library/firebaseConfig';
 import { doc, getDoc} from 'firebase/firestore';
 import React, { useState, useEffect } from 'react';
 
+/*
+* This page displays the operating hours of the store.
+*/
+
+
 //function to retrieve the data from the database
 async function getInformation(){
     const docRef = doc(database, "hours", "hoursDocument");

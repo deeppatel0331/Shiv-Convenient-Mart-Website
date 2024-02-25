@@ -4,6 +4,11 @@ import {styled,keyframes} from 'styled-components'
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 
+/*
+* This is the landing page for my website (HOME)
+* It consists of the navbar, a picture of the store, a motto, a section displaying reviews, and a button to navigate to admin page
+*/
+
 //button function to navigate to the admin log-in page
 export default function Home() {
 
