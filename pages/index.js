@@ -124,7 +124,6 @@ const Motto = styled.p`
   background: linear-gradient(45deg, #ff8a00, #e52e71);
   -webkit-background-clip: text;
   color: transparent;
-  animation: ${fade} 2s ease;
 `
 //storage for the review portion
 const ReviewContainer = styled.div`

@@ -88,18 +88,17 @@ const NavigationButtonHolder = styled.div`
 //the buttons themselves
 const NavigationElement = styled.button`
     padding: 0.75vw;
-    background-color: white;
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    color: black;
     border-radius: 0.5vw;
     border: none;
     cursor: pointer;
 
     transition: 0.3s ease-in-out;
     &:hover{
-        transform: scale(1.15);
-        color: red;
+        transform: scale(1.25);
         background: linear-gradient(45deg, #ff8a00, #e52e71);
-        -webkit-background-clip: text;
-        color: transparent;
+        color: black;
     }
 `
 
