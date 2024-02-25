@@ -14,7 +14,6 @@ const productsData = [
   { name: 'Frozen Meals', imageSrc: '/frozenmeals.webp' },
   { name: 'Ice Cream', imageSrc: '/icecream.webp' },
   { name: 'Ice Cream Bars', imageSrc: '/icecreambars.webp' },
-
 ];
 
 //controls how things are mapped
