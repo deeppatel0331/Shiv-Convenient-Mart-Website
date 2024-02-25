@@ -63,7 +63,7 @@ const adminPage = () => {
 
         <ParentContainer>
 
-            <HeadContainer>Admin Page</HeadContainer>
+            <HeadContainer>Update Hours</HeadContainer>
             
             <Info>Day of the week: </Info> <TimeInput ref={DayRef}/>
             <Info>Time: </Info> <TimeInput  ref={TimeRef}/>
@@ -76,6 +76,7 @@ const adminPage = () => {
   )
 }
 
+//entire body
 const ParentContainer = styled.main`
     width: 100vw;
     display: flex;
@@ -86,6 +87,7 @@ const ParentContainer = styled.main`
     background-color: #141e30;
     padding: 2vw;
 `
+//title styling
 const HeadContainer = styled.h1`
     display: flex;
     flex-direction: column;
@@ -94,6 +96,7 @@ const HeadContainer = styled.h1`
     font-family: Sans Seriff;
     color: white;
 `
+//label stylings
 const Info = styled.p`
     margin: 1px;
     font-size: 20px;
@@ -101,10 +104,12 @@ const Info = styled.p`
     color: white;
 `;
 
+//input boxes
 const TimeInput = styled.input`
     width: 30%;
 `
 
+//styling for my update button
 const Change = styled.button`
     width: 50px;
 `
