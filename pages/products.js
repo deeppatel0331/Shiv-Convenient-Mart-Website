@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components'
 import Image from "next/image";
 
+//array for adding products more efficiently
 const productsData = [
   { name: 'Flour', imageSrc: '/flour.webp' },
   { name: 'Rice', imageSrc: '/rice.webp' },
@@ -28,7 +29,7 @@ const Product = ({product}) => {
   )
 }
 
-//does the mapping of products to their corresponding name and picture
+//does the mapping of products to their corresponding name and picture (prop passing)
 export const products = () => {
   return (
     <div>
