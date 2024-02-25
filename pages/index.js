@@ -121,7 +121,9 @@ const Motto = styled.p`
   font-size: 25px;
   font-family: Sans-Serif;
   font-style: italic;
-  color: red;
+  background: linear-gradient(45deg, #ff8a00, #e52e71);
+  -webkit-background-clip: text;
+  color: transparent;
   animation: ${fade} 2s ease;
 `
 //storage for the review portion
