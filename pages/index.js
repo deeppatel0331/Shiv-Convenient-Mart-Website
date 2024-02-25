@@ -1,13 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import {styled,keyframes} from 'styled-components'
 import Navbar from "@/components/Navbar";
 import { useRouter } from "next/router";
 
-
-//button function to navigate to the admin log in page
+//button function to navigate to the admin log-in page
 export default function Home() {
+
   const router = useRouter();
 
     function goToAdmin(){
@@ -125,7 +124,7 @@ const Motto = styled.p`
   color: red;
   animation: ${fade} 2s ease;
 `
-//storage for the review portion for the review portion
+//storage for the review portion
 const ReviewContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -136,7 +135,7 @@ const ReviewContainer = styled.div`
   height: 45vh;
   background-color: #141e30;
 `
-
+//used to add a header for the review portion of the page
 const HeadContainer = styled.h1`
   display: flex;
   flex-direction: column;
@@ -146,7 +145,7 @@ const HeadContainer = styled.h1`
   text-decoration: underline;
   color: white;
 `
-
+//the reviews themselves
 const Review = styled.p`
   margin: 20px;
   font-size: 20px;
