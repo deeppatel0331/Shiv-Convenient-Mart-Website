@@ -63,7 +63,7 @@ const fade = keyframes`
 const ParentContainer = styled.main`
   width: 100%;
   display: flex;
-  height: 84.56vh;
+  height: 100%;
   flex-direction: column;
   align-items: center;
   background-color: #141e30;
