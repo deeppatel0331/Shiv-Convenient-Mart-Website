@@ -7,7 +7,7 @@ import { collection, addDoc, doc, setDoc } from 'firebase/firestore'
 import { useRouter } from "next/router";
 
 /*
-* This page is for the owners of the store to be able to log in to change the hours
+* This page is for the owners of the store to be able to log in, to change the hours
 */
 
 //JSON for my hours

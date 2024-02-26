@@ -2,6 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from "next/router";
 
+/*
+* This is the code for the Navigation Bar that is found on all of the pages of the website besides the admin pages.
+* It is used to display the name of the store and provide buttons to navigate to different parts of the website.
+*/
+
 //gives the buttons the functionality to go to the corresponding page when clicked
 export const Navbar = () => {
 

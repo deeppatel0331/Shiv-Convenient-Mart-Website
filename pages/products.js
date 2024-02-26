@@ -4,7 +4,7 @@ import {styled,keyframes} from 'styled-components'
 import Image from "next/image";
 
 /*
-* This page displays some of the underlying items sold at the store.
+* This page displays some of the popular items sold at the store.
 */
 
 //array for adding products more efficiently
