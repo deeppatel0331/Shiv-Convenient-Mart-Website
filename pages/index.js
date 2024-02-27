@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 /*
 * This is the landing page for my website (HOME)
 * It consists of the navbar, a picture of the store, a motto, a section displaying reviews, and a button to navigate to admin page
+* The owner of the business can access the admin log-in page from here.
 */
 
 //button function to navigate to the admin log-in page
