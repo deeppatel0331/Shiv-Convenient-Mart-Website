@@ -57,62 +57,91 @@ const AdminLogin = () => {
         })
     }
 
-    //layout of the admin log in page
-  return (
-    <div>
-        <ParentContainer>
-            <HeadContainer>Admin Login</HeadContainer>
-            
-            <Info>Email:</Info>
-            <input 
-            type='email'
-            ref={emailRef}
-            placeholder='enter email here'
-            />
+// layout of the admin log in page
+return (
+    <Wrapper>
+      <Container>
+        <Title>Admin Login</Title>
 
-            <Info>Password:</Info>
-            <input 
-            type='password'
-            ref={passRef}
-            placeholder='enter password here'
-            />
+        <InputLabel>Email:</InputLabel>
+        <Input
+          type="email"
+          ref={emailRef}
+          placeholder="Enter email here"
+        />
 
-            <Info></Info>
-            <button onClick={loginFunction}>Login</button>
+        <InputLabel>Password:</InputLabel>
+        <Input
+          type="password"
+          ref={passRef}
+          placeholder="Enter password here"
+        />
 
-        </ParentContainer>
+        <Button onClick={loginFunction}>Login</Button>
+      </Container>
+    </Wrapper>
+  );
+};
 
-    </div>
-  )
-}
+// main container
+const Wrapper = styled.div`
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #141e30;
+`;
 
-//main container
-const ParentContainer = styled.main`
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #141e30;
-`
+// the box that holds the input box, title, and description
+const Container = styled.div`
+  width: 400px;
+  padding: 20px;
+  background-color: #1a263b;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+`;
 
-//for the title
-const HeadContainer = styled.h1`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-size: 50px;
-    font-family: Sans Seriff;
-    color: white;
-`
+// for the title
+const Title = styled.h1`
+  font-size: 30px;
+  font-family: 'Sans-Serif';
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+`;
 
-//for input box description
-const Info = styled.p`
-    margin: 5px;
-    font-size: 20px;
-    font-family: Sans Seriff;
-    color: white;
+// for input box description
+const InputLabel = styled.p`
+  margin: 5px;
+  font-size: 18px;
+  font-family: 'Sans-Serif';
+  color: white;
+`;
+
+// the input box itself
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+`;
+
+// enter button
+const Button = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: #61dafb;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #ff8a00, #e52e71);
+        color: black;
+    }
 `;
 
 export default AdminLogin
