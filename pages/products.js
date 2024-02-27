@@ -95,7 +95,6 @@ const ImageWrapper = styled.div`
   position: relative;
   object-fit: contain;
   margin-top: 10px;
-  animation: ${fade} 2s ease;
 `;
 
 //title of each image
