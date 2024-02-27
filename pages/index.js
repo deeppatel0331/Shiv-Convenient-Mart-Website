@@ -77,13 +77,13 @@ export default function Home() {
 
 //fading animation for cool effect
 const fade = keyframes`
-    from{
-        opacity: 0.1;
-    }
+  from{
+      opacity: 0.1;
+  }
 
-    to{
-        opacity: 1;
-    }
+  to{
+      opacity: 1;
+  }
 `
 //body
 const ParentContainer = styled.main`
@@ -163,22 +163,22 @@ const Review = styled.p`
 
 //button holder
 const NavigationButtonHolder = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 5vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5vw;
 `
 
 //the button itself
 const NavigationElement = styled.button`
-    padding: 0.1vw;
-    background-color: white;
-    border-radius: 0.5vw;
-    border: none;
-    cursor: pointer;
+  padding: 0.1vw;
+  background-color: white;
+  border-radius: 0.5vw;
+  border: none;
+  cursor: pointer;
 
-    transition: 0.1s ease-in-out;
-    &:hover{
-        color: red;
-    }
+  transition: 0.1s ease-in-out;
+  &:hover{
+      color: red;
+  }
 `
