@@ -62,60 +62,91 @@ const adminPage = () => {
             });
         }
 
-  return (
-    <div>
+    return (
+        <Wrapper>
+            <Container>
+            <Title>Update Hours</Title>
 
-        <ParentContainer>
+            <InputLabel>Day of the week:</InputLabel>
+            <TimeInput ref={DayRef} placeholder='Enter day in lowercase' />
 
-            <HeadContainer>Update Hours</HeadContainer>
-            
-            <Info>Day of the week: </Info> <TimeInput ref={DayRef} placeholder='enter day in lowercase'/>
-            <Info>Time: </Info> <TimeInput  ref={TimeRef} placeholder='enter time as #:##am - #:##pm'/>
-            <Info>...</Info>
-            <Change onClick={Enter}>Update</Change> 
+            <InputLabel>Time:</InputLabel>
+            <TimeInput ref={TimeRef} placeholder='Enter time as #:##am - #:##pm' />
 
-        </ParentContainer>
+            <Spacer />
 
-    </div>
-  )
-}
+            <UpdateButton onClick={Enter}>Update</UpdateButton>
+            </Container>
+        </Wrapper>
+        );
+    };
 
-//entire body
-const ParentContainer = styled.main`
+// main container
+const Wrapper = styled.div`
     width: 100vw;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     background-color: #141e30;
-    padding: 2vw;
-`
-//title styling
-const HeadContainer = styled.h1`
+`;
+
+//holds the title, input boxes, and button
+const Container = styled.main`
+    width: 400px;
+    padding: 20px;
+    background-color: #1a263b;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    font-size: 40px;
-    font-family: Sans Seriff;
+`;
+
+// title styling
+const Title = styled.h1`
+    font-size: 30px;
+    font-family: 'Sans-Serif';
     color: white;
-`
-//label stylings
-const Info = styled.p`
-    margin: 1px;
-    font-size: 20px;
-    font-family: Sans Seriff;
+    text-align: center;
+    margin-bottom: 20px;
+`;
+
+// label stylings
+const InputLabel = styled.p`
+    margin: 10px 0 5px 0;
+    font-size: 18px;
+    font-family: 'Sans-Serif';
     color: white;
 `;
 
-//input boxes
+// input boxes
 const TimeInput = styled.input`
-    width: 30%;
-`
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+`;
 
-//styling for my update button
-const Change = styled.button`
-    width: 50px;
-`
+// styling for the update button
+const UpdateButton = styled.button`
+    width: 100%;
+    padding: 10px;
+    background-color: #61dafb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    transition: 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+        background: linear-gradient(45deg, #ff8a00, #e52e71);
+        color: black;
+    }
+`;
+
+// empty div for spacing
+const Spacer = styled.div`
+    height: 20px;
+`;
 
 export default adminPage
