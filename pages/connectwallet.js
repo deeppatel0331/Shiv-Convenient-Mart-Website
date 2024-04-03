@@ -1,5 +1,5 @@
 import React, { useRef } from 'react'
-import styled from 'styled-components'
+import {styled,keyframes} from 'styled-components';
 import Navbar from "@/components/Navbar";
 
 /*
@@ -21,6 +21,19 @@ return (
     </Wrapper>
   );
 };
+
+//animation for cool effects
+const fade = keyframes`
+    from{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+`
 
 // main container
 const Wrapper = styled.div`
@@ -45,6 +58,7 @@ const Container = styled.div`
   background: linear-gradient(to bottom, #2C3E50, #000000);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: ${fade} 1.5s ease;
 `;
 
 // for the title

@@ -85,6 +85,7 @@ const Container = styled.main`
   background: linear-gradient(to bottom, #2C3E50, #000000);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  animation: ${fade2} 1s ease;
 `;
 
 // title styling
@@ -142,7 +143,7 @@ const Description = styled.p`
   color: #00BFFF;
   text-align: center;
   padding: 10px;
-  animation: ${fade2} 1s ease;
+  animation: ${fade2} 3s ease;
 `;
 
 export default adminPage

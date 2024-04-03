@@ -15,7 +15,7 @@ const hours = () => {
             <ContentContainer>
             
                 <HeadContainer>
-                    Site Description
+                    About The Website
                 </HeadContainer>
         
                 <Description>
