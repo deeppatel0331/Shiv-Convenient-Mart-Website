@@ -30,7 +30,7 @@ export default function Home() {
               fill={true}
             />
           </ImageWrapper>
-          <Motto>Dive into the world of breathtaking works of art!</Motto>
+          <Motto>Dive <span>DEEP</span> into the world of breathtaking works of art!</Motto>
         </ImageContainer>
 
       </ParentContainer>
@@ -39,15 +39,29 @@ export default function Home() {
 }
 
 //fading animation for cool effect
-const fade = keyframes`
+const fadeLeft = keyframes`
   from {
-    opacity: 0.1;
+    opacity: 0;
+    transform: translateX(-100%);
   }
 
   to {
     opacity: 1;
+    transform: translateX(0%);
   }
 `
+const fadeRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+`
+
 //body
 const ParentContainer = styled.main`
   width: 100vw;
@@ -62,7 +76,7 @@ const ImageWrapper = styled.div`
   position: relative;
   object-fit: contain;
   border-radius: 30px;
-  animation: ${fade} 0.5s ease;
+  animation: ${fadeLeft} 1s ease;
 `
 
 //container that holds the image
@@ -75,15 +89,19 @@ const ImageContainer = styled.div`
   height: 85.65vh;
   background: black;
 `
-
-//text styling for the motto
+//styling for the motto
 const Motto = styled.p`
   margin-top: 20px; 
   font-size: 25px;
   font-family: Sans-Serif;
-  font-style: italic;
   background: #00BFFF;
   -webkit-background-clip: text;
   color: transparent;
   text-align: center;
+  animation: ${fadeRight} 2s ease;
+
+  span {
+    color: red;
+    text-decoration: underline;
+  }
 `;
