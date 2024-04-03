@@ -34,7 +34,7 @@ export const Navbar = () => {
     <Container>
 
         <LogoBox>
-            Deep Minting
+            Deep-Minting
         </LogoBox>
         
         <NavigationButtonHolder>

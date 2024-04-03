@@ -1,8 +1,5 @@
 import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components';
-import { database } from '@/library/firebaseConfig';
-import { doc, getDoc} from 'firebase/firestore';
-import React, { useState, useEffect } from 'react';
 
 /*
 * This page displays the operating hours of the store.
@@ -21,9 +18,17 @@ const hours = () => {
                     Site Description
                 </HeadContainer>
         
-                <DaysContainer>
-                    
-                </DaysContainer>
+                <Description>
+                Welcome to the world of Non-Fungible Tokens, or NFTs, where each token is as unique as you are. With NFTs, you can own one-of-a-kind digital collectibles, prove your ownership, and experience the innovation of tokenization firsthand.
+                </Description>
+
+                <Description>
+                At Deep-Minting, we invite you to explore this exciting realm and unleash your creativity with our "Create NFT" feature. 
+                </Description>
+
+                <Description>
+                So, why wait? Connect your wallet and immerse yourself in a world filled with breathtaking art!
+                </Description>
 
             </ContentContainer>
 
@@ -37,12 +42,28 @@ const hours = () => {
 const fade = keyframes`
     from{
         opacity: 0;
+        transform: translateY(-100%);
     }
 
     to{
         opacity: 1;
+        transform: translateY(0%);
     }
 `
+
+//animation for cool effects
+const fade2 = keyframes`
+    from{
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+`
+
 //Entire sub-space
 const ParentContainer = styled.main`
     width: 100vw;
@@ -69,24 +90,18 @@ const HeadContainer = styled.h1`
     font-family: Sans Seriff;
     text-decoration: underline;
     color: #00BFFF;
-    animation: ${fade} 0.5s ease;
+    animation: ${fade} 1s ease;
 `
 
-//Container for the hours
-const DaysContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    animation: ${fade} 1.5s ease;
-`;
-
 //paragraph container to display the hours
-const Day = styled.p`
-    margin: 15px;
+const Description = styled.p`
+    margin: 15px auto;
     font-size: 25px;
-    font-family: Sans Seriff;
+    font-family: Merriweather;
     color: white;
-    animation: ${fade} 1.5s ease;
+    text-align: center;
+    padding: 10px;
+    animation: ${fade2} 1s ease;
 `;
 
 export default hours
