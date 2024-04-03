@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar'
 import {styled,keyframes} from 'styled-components';
 
 /*
-* This page displays the operating hours of the store.
+* This page displays the background information about the website and goals.
 */
 
 const hours = () => {
@@ -19,15 +19,15 @@ const hours = () => {
                 </HeadContainer>
         
                 <Description>
-                Welcome to the world of Non-Fungible Tokens, or NFTs, where each token is as unique as you are. With NFTs, you can own one-of-a-kind digital collectibles, prove your ownership, and experience the innovation of tokenization firsthand.
+                    Welcome to the world of Non-Fungible Tokens, or NFTs, where each token is as unique as you are. With NFTs, you can own one-of-a-kind digital collectibles, prove your ownership, and experience the innovation of tokenization firsthand.
                 </Description>
 
                 <Description>
-                At Deep-Minting, we invite you to explore this exciting realm and unleash your creativity with our "Create NFT" feature. 
+                    At Deep-Minting, we invite you to explore this exciting realm and unleash your creativity with our "Create NFT" feature. 
                 </Description>
 
                 <Description>
-                So, why wait? Connect your wallet and immerse yourself in a world filled with breathtaking art!
+                    So, why wait? Connect your wallet and immerse yourself in a world filled with breathtaking art!
                 </Description>
 
             </ContentContainer>
@@ -93,7 +93,7 @@ const HeadContainer = styled.h1`
     animation: ${fade} 1s ease;
 `
 
-//paragraph container to display the hours
+//paragraph container to dislay the website information
 const Description = styled.p`
     margin: 15px auto;
     font-size: 25px;

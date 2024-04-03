@@ -8,7 +8,7 @@ import Navbar from "@/components/Navbar";
 
 const Login = () => {
 
-// layout of the admin log in page
+// layout of the connect wallet functionality
 return (
     <Wrapper>
         <Navbar />
@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     height: 100vh;
 `;
 
+//helps with centering the navbar and main content
 const CenteringContainer = styled.div`
     display: flex;
     justify-content: center;
@@ -41,7 +42,7 @@ const CenteringContainer = styled.div`
 const Container = styled.div`
   width: 400px;
   padding: 20px;
-  background: linear-gradient(180.2deg, rgb(30, 33, 48) 6.8%, rgb(74, 98, 110) 131%);
+  background: linear-gradient(to bottom, #2C3E50, #000000);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;
@@ -55,7 +56,7 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `;
 
-// enter button
+// connect button
 const Button = styled.button`
   width: 100%;
   padding: 10px;

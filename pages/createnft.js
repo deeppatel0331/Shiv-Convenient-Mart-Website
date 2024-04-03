@@ -1,109 +1,148 @@
-import React, { useRef } from 'react'
-import Navbar from '@/components/Navbar'
-import {styled,keyframes} from 'styled-components'
-import Image from "next/image";
+import { useRef, useEffect } from 'react'
+import React from 'react'
+import Navbar from "@/components/Navbar";
+import {styled,keyframes} from 'styled-components';
 
 /*
-* This page displays some of the popular items sold at the store.
+* This page is for users to create their own custome NFT
 */
 
-//array for adding products more efficiently
-const productsData = [
-  { name: 'Flour', imageSrc: '/flour.webp' },
-  { name: 'Rice', imageSrc: '/rice.webp' },
-  { name: 'Lentils', imageSrc: '/lentils.webp' },
-  { name: 'Mixes', imageSrc: '/mixes.webp' },
-  { name: 'Snacks', imageSrc: '/snacks2.webp' },
-  { name: 'Sweets', imageSrc: '/sweets.webp' },
-  { name: 'Frozen Meals', imageSrc: '/frozenmeals.webp' },
-  { name: 'Ice Cream', imageSrc: '/icecream.webp' },
-  { name: 'Ice Cream Bars', imageSrc: '/icecreambars.webp' },
-];
+const adminPage = () => {
 
-//controls how things are mapped
-const Product = ({product}) => {
+    const Input1Ref = useRef();
+    const Input2Ref = useRef();
+    const Input3Ref = useRef();
+
+    const Enter = () => {
+        const input1 = Input1Ref.current.value;
+        const input2 = Input2Ref.current.value;
+        const input3 = Input3Ref.current.value;
+        console.log(input1);
+        console.log(input2);
+        console.log(input3);
+    }
+
     return (
-    <GeneralContainer key={product.name}>
-      <General>{product.name}</General>
-      <ImageWrapper>
-        <Image src={product.imageSrc} alt={`Picture of ${product.name}`} fill={true} />
-      </ImageWrapper>
-    </GeneralContainer>
-  )
-}
+        <Wrapper>
+          <Navbar />
+          <CenteringContainer>
+          <Description>Enter 3 words that you want to be represented as an NFT</Description>
+            <Container>
+            <Title>Create A Custom NFT</Title>
 
-//does the mapping of products to their corresponding name and picture (prop passing)
-export const products = () => {
-  return (
-    <div>
-      <Navbar />
-      <ParentContainer>
-        <ProductsContainer>
-          {productsData.map((product) => (
-            <Product key={product.name} product = {product} />
-          ))}
-        </ProductsContainer>
-      </ParentContainer>
-    </div>
-  );
-};
+            <InputLabel>Word 1:</InputLabel>
+            <TimeInput ref={Input1Ref} placeholder='Enter keyword' />
 
-//animation for cool effect
-const fade = keyframes`
+            <InputLabel>Word 2:</InputLabel>
+            <TimeInput ref={Input2Ref} placeholder='Enter keyword' />
+
+            <InputLabel>Word 3:</InputLabel>
+            <TimeInput ref={Input3Ref} placeholder='Enter keyword' />
+
+            <Spacer />
+
+            <UpdateButton onClick={Enter}>CREATE</UpdateButton>
+            </Container>
+            </CenteringContainer>
+        </Wrapper>
+        );
+    };
+
+
+//animation for cool effects
+const fade2 = keyframes`
     from{
         opacity: 0;
+        transform: translateY(-100%);
     }
 
     to{
         opacity: 1;
+        transform: translateY(0%);
     }
 `
+// main container
+const Wrapper = styled.div`
+  width: 100vw;
+  height: 100vh;
+`;
 
-//body
-const ParentContainer = styled.main`
-  width: 100%;
+//helped with aligning the navbar with the main content
+const CenteringContainer = styled.div`
   display: flex;
-  height: 100%;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  background-color: #141e30;
-`;
+  width: 100%;
+  height: 85.65vh;
+  background: black;
+`
 
-//this provides me with a container with a grid layout
-const ProductsContainer = styled.div`
-  width: 85%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  padding: 0 10px;
-  box-sizing: border-box;
-`;
-
-//holds each general item
-const GeneralContainer = styled.div`
-  background-color: #141e30;
-  padding: 10px;
-  box-sizing: border-box;
-`;
-
-//the images themselves (all with the same properties)
-const ImageWrapper = styled.div`
+//holds the title, input boxes, and button background:
+const Container = styled.main`
   width: 400px;
-  height: 300px;
-  position: relative;
-  object-fit: contain;
-  margin-top: 10px;
+  padding: 20px;
+  background: linear-gradient(to bottom, #2C3E50, #000000);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 `;
 
-//title of each image
-const General = styled.p`
-  margin: 10px;
-  font-size: 25px;
-  font-family: Sans Serif;
+// title styling
+const Title = styled.h1`
+  font-size: 30px;
+  font-family: 'Sans-Serif';
   color: white;
-  text-decoration: underline;
+  text-align: center;
+  margin-bottom: 20px;
 `;
 
-export default products
+// label stylings
+const InputLabel = styled.p`
+  margin: 10px 0 5px 0;
+  font-size: 18px;
+  font-family: 'Sans-Serif';
+  color: white;
+`;
+
+// input boxes
+const TimeInput = styled.input`
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+`;
+
+// styling for the create button
+const UpdateButton = styled.button`
+  width: 100%;
+  padding: 10px;
+  background-color: #00BFFF;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  transition: 0.3s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+        background: red;
+        color: black;
+    }
+`;
+
+// empty div for spacing
+const Spacer = styled.div`
+  height: 20px;
+`;
+
+//paragraph container to display the hours
+const Description = styled.p`
+  margin: 15px auto;
+  font-size: 25px;
+  font-family: Merriweather;
+  color: #00BFFF;
+  text-align: center;
+  padding: 10px;
+  animation: ${fade2} 1s ease;
+`;
+
+export default adminPage

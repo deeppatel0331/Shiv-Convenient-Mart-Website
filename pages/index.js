@@ -38,7 +38,7 @@ export default function Home() {
   )
 }
 
-//fading animation for cool effect
+//fading animations for cool effect
 const fadeLeft = keyframes`
   from {
     opacity: 0;
