@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import { useRouter } from "next/router";
 
 /*
-* This is the code for the Navigation Bar that is found on all of the pages of the website besides the admin pages.
-* It is used to display the name of the store and provide buttons to navigate to different parts of the website.
+* This is the code for the Navigation Bar that is found on all of the pages of the website.
+* It is used to display the name of the website and provide buttons to navigate to different parts of the website.
 */
 
 //gives the buttons the functionality to go to the corresponding page when clicked
@@ -16,16 +16,16 @@ export const Navbar = () => {
         router.push("/");
     }
 
-    function goToHoursPage(){
-        router.push("/hours")
+    function goToInformationPage(){
+        router.push("/information")
     }
 
-    function goToContactPage(){
-        router.push("/contact")
+    function goToLoginPage(){
+        router.push("/login")
     }
 
-    function goToProductsPage(){
-        router.push("/products")
+    function goToCreateNFTPage(){
+        router.push("/createnft")
     }
 
     //layout of the navigation bar
@@ -33,7 +33,7 @@ export const Navbar = () => {
     <Container>
 
         <LogoBox>
-            Shiv Convenient Mart
+            Deep Minting
         </LogoBox>
         
         <NavigationButtonHolder>
@@ -41,17 +41,17 @@ export const Navbar = () => {
             <NavigationElement onClick={goToHome}>
                 Home
             </NavigationElement>
+
+            <NavigationElement onClick={goToLoginPage}>
+                Log-in
+            </NavigationElement>
             
-            <NavigationElement onClick={goToHoursPage}>
-                Hours
+            <NavigationElement onClick={goToInformationPage}>
+                Information
             </NavigationElement>
 
-            <NavigationElement onClick={goToContactPage}>
-                Contact
-            </NavigationElement>
-
-            <NavigationElement onClick={goToProductsPage}>
-                Products
+            <NavigationElement onClick={goToCreateNFTPage}>
+                Create NFT
             </NavigationElement>
 
         </NavigationButtonHolder>
@@ -69,14 +69,14 @@ const Container = styled.div`
     padding-left: 5vw;
     padding-right: 6vw;
     padding-top: 2vw;
-    background-color: #141e30;
+    background: black;
 `
 //essentially the title of the logo box/website
 const LogoBox = styled.div`
     font-size: 5vw;
     font-weight: bold;
     font-family: Sans Seriff;
-    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    background: #00BFFF;
     -webkit-background-clip: text;
     color: transparent;
 `
@@ -86,14 +86,14 @@ const NavigationButtonHolder = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 23vw;
+    width: 25vw;
     gap: 1vw
 `
 
 //the buttons themselves
 const NavigationElement = styled.button`
     padding: 0.75vw;
-    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    background: #00BFFF;
     color: black;
     border-radius: 0.5vw;
     border: none;
@@ -102,7 +102,7 @@ const NavigationElement = styled.button`
     transition: 0.3s ease-in-out;
     &:hover{
         transform: scale(1.25);
-        background: linear-gradient(45deg, #ff8a00, #e52e71);
+        background: red;
         color: black;
     }
 `

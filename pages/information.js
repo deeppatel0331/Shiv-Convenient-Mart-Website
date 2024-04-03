@@ -1,37 +1,39 @@
-import React from 'react'
 import Navbar from '@/components/Navbar'
-import {styled,keyframes} from 'styled-components'
+import {styled,keyframes} from 'styled-components';
+import { database } from '@/library/firebaseConfig';
+import { doc, getDoc} from 'firebase/firestore';
+import React, { useState, useEffect } from 'react';
 
 /*
-* This page displays the contact information for the business.
+* This page displays the operating hours of the store.
 */
 
-export const contact = () => {
-  return (
+const hours = () => {
 
+  return (
     <div>
         <Navbar />
         <ParentContainer>
-            <ContentContainer>
-                    
-                    <HeadContainer>
-                        CONTACTS
-                    </HeadContainer>
 
-                    <InfoContainer>
-                        <Detail>Phone: (570) 969-0331</Detail>
-                        <Detail>Email: deeppatel0331@gmail.com</Detail>
-                        <Detail>Address: 953 Prescott Ave, Scranton, PA 18510</Detail>
-                    </InfoContainer>
+            <ContentContainer>
+            
+                <HeadContainer>
+                    Site Description
+                </HeadContainer>
+        
+                <DaysContainer>
+                    
+                </DaysContainer>
 
             </ContentContainer>
+
         </ParentContainer>
     </div>
   )
 
 }
 
-//animation for cool effect
+//animation for cool effects
 const fade = keyframes`
     from{
         opacity: 0;
@@ -41,22 +43,23 @@ const fade = keyframes`
         opacity: 1;
     }
 `
-
-//The conents that will be stored including header and paragraph
+//Entire sub-space
 const ParentContainer = styled.main`
     width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 85.65vh;
-    background-color: #141e30;
+    background-color: black;
 `
-//Stores the header and relevant information
+
+//The conents that will be stored including header and paragraph
 const ContentContainer = styled.div`
     padding: 20px;
     align-items: center;
     animation: ${fade} 1.5s ease;
 `
+
 //Container for the Header
 const HeadContainer = styled.h1`
     display: flex;
@@ -65,24 +68,25 @@ const HeadContainer = styled.h1`
     font-size: 50px;
     font-family: Sans Seriff;
     text-decoration: underline;
-    color: white;
+    color: #00BFFF;
     animation: ${fade} 0.5s ease;
 `
-//Container for the information
-const InfoContainer = styled.div`
+
+//Container for the hours
+const DaysContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: ${fade} 1.5s ease;
-`
+`;
 
-//Each individual element of contact information
-const Detail = styled.p`
+//paragraph container to display the hours
+const Day = styled.p`
     margin: 15px;
     font-size: 25px;
     font-family: Sans Seriff;
     color: white;
     animation: ${fade} 1.5s ease;
-`
+`;
 
-export default contact
+export default hours
